@@ -15,7 +15,7 @@ export default function CircleBotton(props: { style : any; name : any; onPress: 
 }
 
 CircleBotton.propTypes = {
-  style: shape,
+  //style: shape,
   name: string.isRequired,
   onPress: func,
 };
