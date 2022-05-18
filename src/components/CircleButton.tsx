@@ -1,22 +1,23 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { string, shape } from "prop-types";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { string, shape, func } from "prop-types";
 import Feather from "react-native-vector-icons/Feather";
 Feather.loadFont();
 
 
-export default function CircleBotton(props: { style : any; name : any; }) {
-  const { style, name } = props;
+export default function CircleBotton(props: { style : any; name : any; onPress: any; }) {
+  const { style, name, onPress } = props;
   return(
-    <View style={[styles.circleBotton, style]}>
+    <TouchableOpacity style={[styles.circleBotton, style]} onPress={onPress}>
       <Feather name={name} size={30} color="white" />
-    </View>
+    </TouchableOpacity>
   );
 }
 
 CircleBotton.propTypes = {
-  //style: shape,
-  name: string.isRequired
+  style: shape,
+  name: string.isRequired,
+  onPress: func,
 };
 
 CircleBotton.defaultProps = {

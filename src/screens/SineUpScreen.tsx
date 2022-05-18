@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, TextInput } from 'react-native';
+import { StyleSheet, View, Text, TextInput, Alert, TouchableOpacity } from 'react-native';
 
 import AppBar from '../components/AppBar';
 import Button from '../components/Button';
@@ -12,10 +12,12 @@ export default function LogInScreen() {
         <Text style={styles.title}>Sine Up</Text>
         <TextInput style={styles.input} value='Email Adress'></TextInput>
         <TextInput style={styles.input} value='Password'></TextInput>
-        <Button label="Submit" />
+        <Button label="Submit" onPress={() => { Alert.alert('Submit!'); }} />
         <View style={styles.footer}>
           <Text style={styles.footerText}>Already registered?</Text>
+          <TouchableOpacity>
           <Text style={styles.footerLink}>Log In.</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>
