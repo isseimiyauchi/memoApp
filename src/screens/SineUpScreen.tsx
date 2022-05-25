@@ -4,18 +4,31 @@ import { StyleSheet, View, Text, TextInput, Alert, TouchableOpacity } from 'reac
 import AppBar from '../components/AppBar';
 import Button from '../components/Button';
 
-export default function LogInScreen() {
+export default function LogInScreen(props) {
+  const { navigation } = props;
   return(
     <View style={styles.container}>
-      <AppBar />
       <View style={styles.inner}>
         <Text style={styles.title}>Sine Up</Text>
         <TextInput style={styles.input} value='Email Adress'></TextInput>
         <TextInput style={styles.input} value='Password'></TextInput>
-        <Button label="Submit" onPress={() => { Alert.alert('Submit!'); }} />
+        <Button 
+          label="Submit" 
+          onPress={() => { 
+            navigation.reset({
+              index: 0,
+              routes: [{ name: 'MemoList' }],   
+            }) }} />
         <View style={styles.footer}>
           <Text style={styles.footerText}>Already registered?</Text>
-          <TouchableOpacity>
+          <TouchableOpacity 
+            onPress={() => { 
+              navigation.reset({
+                index: 0,
+                routes: [{ name: 'LogIn' }],
+              });
+            }}
+          >
           <Text style={styles.footerLink}>Log In.</Text>
           </TouchableOpacity>
         </View>

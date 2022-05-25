@@ -3,14 +3,17 @@ import { StyleSheet, Text, View, TextInput, KeyboardAvoidingView } from "react-n
 import AppBar from "../components/AppBar";
 import CircleBotton from "../components/CircleButton";
 
-export default function MemoEditScreen() {
+export default function MemoEditScreen(props) {
+  const { navigation } = props;
   return (
     <KeyboardAvoidingView style={styles.container} behavior="height">
-      <AppBar />
       <View style={styles.inputContainer}>
         <TextInput value='買い物リスト' multiline style={styles.input} />
       </View>
-      <CircleBotton name="check" />
+      <CircleBotton 
+      name="check" 
+      onPress={() => { navigation.goBack();}}
+      />
     </KeyboardAvoidingView>
   );
 }
