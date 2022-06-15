@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
+require('firebase/firestore');
 
 import MemoListScreen from "./src/screens/MemoListScreen";
 import MemoDetailScreen from "./src/screens/MemoDetailScreen";
@@ -17,6 +18,7 @@ const Stack = createStackNavigator();
 
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig)
+  firebase.firestore().settings({ experimentalForceLongPolling: true });
 }
 export {firebase}
 

@@ -4,9 +4,6 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import { useNavigation } from '@react-navigation/native';
 
-export interface handlePress {
-  name: () => void
-}
 
 export default function LogOutButton() {
   const navigation = useNavigation();
